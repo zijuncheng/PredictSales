@@ -1,12 +1,12 @@
 # Sales Prediction
 
-This is the solution to the [Kaggle Competition: Predict Future Sales](Kaggle) where one is required to predict the next monthly sales for each shop and item.
+This project is to provide a solution to the [Kaggle Competition: Predict Future Sales](Kaggle) where one is required to predict the next monthly sales for each pair of shop and item.
 
 
 ### Installation
 ----------------------------------
 ##### Data 
-  This is provided by Kaggle.
+  This is provided by [Kaggle](Kaggle).
   
 
 ##### Install the Requirements
@@ -15,7 +15,7 @@ This is the solution to the [Kaggle Competition: Predict Future Sales](Kaggle) w
 ### Models
 ----------------------------------
  - XGboost (xgb)
- - Random Forest (rf)
+ - Random Forest (RF)
  - Multiple Layer Perceptron (MLP)
  - Long-Short Memory Model (LSTM)
  
@@ -35,9 +35,9 @@ This is the solution to the [Kaggle Competition: Predict Future Sales](Kaggle) w
 ### Performance
 ----------------------------------
 
-The baseline model offers a test rmse of 45 while the rmse for predictions restricted to [0,20] (which is the evaluation standard of this competition) is 4.19.
+The baseline model offers a test rmse of 45 while the rmse for predictions restricted to a target range of 0 and 20 (which is the evaluation standard of the competition) is 4.19.
 
-Please find below the results before any restriction:
+Please find below the results before restricting to the target range:
 
 |feature/model (rmse) | XGboost | RF | MLP      |LSTM |
 |---- | --- | ---| --- | --- |
@@ -49,7 +49,7 @@ Please find below the results before any restriction:
 |cnt + price + cat1 + shop_id + season (4 month window)   | NA   | NA| NA | 4.39
 
 
-Please find below the results clipped to [0,20]:
+Please find below the results restricted to [0,20]:
 
 |feature/model (rmse) | XGboost | RF | MLP      |LSTM |
 |---- | --- | ---| --- | --- |
@@ -60,11 +60,11 @@ Please find below the results clipped to [0,20]:
 |cnt + price + cat0 + cat1 + shop_id + item_id +season (3 month window)   | NA   | NA| NA |  0.81
 |cnt + price + cat1 + shop_id + season (4 month window)   | NA   | NA| NA | 0.78
 
-##### Further Improvement
+### Further Improvement
 
-- Validation was not performed on any model except MLP due to time and memory constraint. More cloud resources is needed to perform hyper-parameter tuning on LSTM.
+- Validation was not performed on any model except MLP due to time and memory constraints. In particular, more cloud resources is needed to perform hyper-parameter tuning on LSTM.
 
-- Selective features or more in-depth feature engineering on the time series
+- There might be too many variables. In-depth feature engineering on the time series could be beneficial
 
 - Other types of Neural Network models could be tested to improve results.
 
